@@ -3,6 +3,7 @@ image: microsoft/dotnet:latest
 stages:
     - build_image
     - push_image
+    - image_test
     - deploy
 
 before_script:
@@ -21,6 +22,12 @@ push_image:
         - "docker push gitlab.atl.az:4567/demo-library/libraresource:$CI_PIPELINE_IID"
     only:
         - master
+
+images_test:
+    stage: image_test
+    script: 
+       - echo "Image Tested"
+
 
 deploying to production:
     stage: deploy
