@@ -1,0 +1,35 @@
+image: microsoft/dotnet:latest
+
+stages:
+    - build_image
+    - push_image
+    - deploy
+
+before_script:
+        - "docker login -u $GITLAB_USER -p $GITLAB_PASSWORD gitlab.atl.az:4567"
+
+build_docker: 
+    stage: build_image
+    script: 
+        - "docker build -t gitlab.atl.az:4567/test-libra/libraresource:$CI_PIPELINE_IID ."
+    only:
+        - master
+
+push_image:
+    stage: push_image
+    script:
+        - "docker push gitlab.atl.az:4567/test-libra/libraresource:$CI_PIPELINE_IID"
+    only:
+        - master
+
+deploying to production:
+    stage: deploy
+    script:  
+        - "docker stop libraresource || true && docker rm libraresource || true"
+        - "docker run -d -p 81:80 --name libraresource-backend gitlab.atl.az:4567/test-libra/libraresource:$CI_PIPELINE_IID"
+    environment:
+        name: production
+    only:
+        - master
+
+
