@@ -11,7 +11,7 @@ before_script:
 build_docker: 
     stage: build_image
     script: 
-        - "docker build -t gitlab.atl.az:4567/test-libra/libraresource:$CI_PIPELINE_IID -f Dockerfile"
+        - "docker build -t gitlab.atl.az:4567/test-libra/libraresource:$CI_PIPELINE_IID ."
     only:
         - master
 
