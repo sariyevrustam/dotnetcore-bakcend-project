@@ -1,0 +1,388 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceApi\\ResourceApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceApi\\ResourceApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceApi\\ResourceApi.csproj",
+        "projectName": "ResourceApi",
+        "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceApi\\ResourceApi.csproj",
+        "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj": {
+                "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj"
+              },
+              "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceInfraBus\\ResourceInfraBus.csproj": {
+                "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceInfraBus\\ResourceInfraBus.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0-rc4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj",
+        "projectName": "ResourceData",
+        "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj",
+        "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj": {
+                "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj"
+              },
+              "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj": {
+                "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Novell.Directory.Ldap.NETStandard": {
+              "target": "Package",
+              "version": "[2.3.8, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj",
+        "projectName": "ResourceDomainCore",
+        "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj",
+        "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj",
+        "projectName": "ResourceDomain",
+        "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj",
+        "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj": {
+                "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceInfraBus\\ResourceInfraBus.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceInfraBus\\ResourceInfraBus.csproj",
+        "projectName": "ResourceInfraBus",
+        "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceInfraBus\\ResourceInfraBus.csproj",
+        "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceInfraBus\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj": {
+                "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[5.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

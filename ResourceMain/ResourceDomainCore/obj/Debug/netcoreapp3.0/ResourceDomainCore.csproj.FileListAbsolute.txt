@@ -1,0 +1,16 @@
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\bin\Debug\netcoreapp3.0\ResourceDomainCore.deps.json
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\bin\Debug\netcoreapp3.0\ResourceDomainCore.dll
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\bin\Debug\netcoreapp3.0\ResourceDomainCore.pdb
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.csprojAssemblyReference.cache
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.AssemblyInfoInputs.cache
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.AssemblyInfo.cs
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.dll
+C:\Users\ayxan\source\repos\LibraResource\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.pdb
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\bin\Debug\netcoreapp3.0\ResourceDomainCore.deps.json
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\bin\Debug\netcoreapp3.0\ResourceDomainCore.dll
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\bin\Debug\netcoreapp3.0\ResourceDomainCore.pdb
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.csprojAssemblyReference.cache
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.AssemblyInfoInputs.cache
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.AssemblyInfo.cs
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.dll
+C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceDomainCore\obj\Debug\netcoreapp3.0\ResourceDomainCore.pdb
