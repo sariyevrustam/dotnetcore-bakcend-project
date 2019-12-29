@@ -33,12 +33,12 @@ namespace ResourceApi.Controllers
 
         [HttpGet]
         public ItemResult Get()
-        {            
+        {
             Console.WriteLine("____________________Http Request_____________________________");
             Console.WriteLine("username : " + httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserName));
             Console.WriteLine("userId" + httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId));
-            Console.WriteLine("userRole" + httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Role).Value);            
-            Console.WriteLine("_________________________________________________");            
+            Console.WriteLine("userRole" + httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Role).Value);
+            Console.WriteLine("_________________________________________________");
 
             ItemResult itemResult = pgResource.GetAll();
             return itemResult;
@@ -78,6 +78,14 @@ namespace ResourceApi.Controllers
         public ItemResult Delete(int id)
         {
             return pgResource.Delete(id, currentUserId);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ItemResult CheckAvailabilityForBasket([FromBody] InBasket inBasket)
+        {
+            Console.WriteLine(inBasket);
+            return pgResource.CheckAvailabilityForBasket(inBasket);
         }
     }
 }

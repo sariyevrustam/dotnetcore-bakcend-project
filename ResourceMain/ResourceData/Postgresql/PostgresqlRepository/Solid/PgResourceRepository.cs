@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using Newtonsoft.Json;
+using Npgsql;
+using NpgsqlTypes;
 using ResourceData.Postgresql.Models.BaseModelClasses;
 using ResourceData.Postgresql.Models.Inputs;
 using ResourceData.Postgresql.Models.Outputs;
@@ -49,7 +51,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
                     itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
                 }
             }
-
+            
             return itemResult;
         }
 
@@ -226,5 +228,56 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
 
             return itemResult;
         }
+
+        public ItemResult CheckAvailabilityForBasket(InBasket inBasket)
+        {
+            ItemResult itemResult = new ItemResult();
+            Int32[] availableResourceCounts = null;
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_check_availability_for_basket, connection);
+                    this.Cmd.Parameters.AddWithValue("p_basket", JsonConvert.SerializeObject(inBasket));                    
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            availableResourceCounts = (Int32[]) dataReader[0];
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            if (availableResourceCounts != null)
+            {
+                int i = 0;
+                foreach (var basketResource in inBasket.BasketResources)
+                {
+                    basketResource.TotalAvailable = availableResourceCounts[i];
+                    i++;
+                }
+                itemResult.Item = inBasket;
+            }            
+
+            return itemResult;
+        }
+
+        
     }
 }
