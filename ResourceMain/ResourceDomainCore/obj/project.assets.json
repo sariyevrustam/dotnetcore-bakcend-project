@@ -34,23 +34,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ayxan\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Aykhan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj",
+      "projectUniqueName": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj",
       "projectName": "ResourceDomainCore",
-      "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj",
-      "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\obj\\",
+      "projectPath": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj",
+      "packagesPath": "C:\\Users\\Aykhan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceDomainCore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aykhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -89,12 +85,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.0.1, 3.0.1]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

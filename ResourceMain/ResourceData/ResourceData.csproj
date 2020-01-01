@@ -14,7 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ResourceDomainCore\ResourceDomainCore.csproj" />
-    <ProjectReference Include="..\ResourceDomain\ResourceDomain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MessageBus\EventHandlers\" />
   </ItemGroup>
   
 </Project>

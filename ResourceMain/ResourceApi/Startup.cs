@@ -14,12 +14,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ResourceData.Settings;
-using ResourceDomain.CommandHandlers;
-using ResourceDomain.Commands;
 using ResourceDomainCore.Bus;
 using ResourceInfraBus;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
 using ResourceData.Postgresql.PostgresqlRepository.Solid;
+using ResourceData.MessageBus.CommandHandlers;
+using ResourceData.MessageBus.Commands;
 
 namespace ResourceApi
 {

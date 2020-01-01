@@ -1273,20 +1273,6 @@
           "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
         }
       },
-      "ResourceDomain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.0",
-        "dependencies": {
-          "MediatR": "7.0.0",
-          "ResourceDomainCore": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ResourceDomain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ResourceDomain.dll": {}
-        }
-      },
       "ResourceDomainCore/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
@@ -4625,11 +4611,6 @@
         "system.threading.threadpool.nuspec"
       ]
     },
-    "ResourceDomain/1.0.0": {
-      "type": "project",
-      "path": "../ResourceDomain/ResourceDomain.csproj",
-      "msbuildProject": "../ResourceDomain/ResourceDomain.csproj"
-    },
     "ResourceDomainCore/1.0.0": {
       "type": "project",
       "path": "../ResourceDomainCore/ResourceDomainCore.csproj",
@@ -4642,29 +4623,24 @@
       "Newtonsoft.Json >= 12.0.3",
       "Novell.Directory.Ldap.NETStandard >= 2.3.8",
       "Npgsql >= 4.1.2",
-      "ResourceDomain >= 1.0.0",
       "ResourceDomainCore >= 1.0.0",
       "System.IdentityModel.Tokens.Jwt >= 5.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ayxan\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Aykhan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj",
+      "projectUniqueName": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceData\\ResourceData.csproj",
       "projectName": "ResourceData",
-      "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\ResourceData.csproj",
-      "packagesPath": "C:\\Users\\ayxan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceData\\obj\\",
+      "projectPath": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceData\\ResourceData.csproj",
+      "packagesPath": "C:\\Users\\Aykhan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceData\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ayxan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aykhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4677,11 +4653,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj": {
-              "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj"
-            },
-            "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj": {
-              "projectPath": "C:\\Users\\ayxan\\source\\repos\\LibraResource\\ResourceMain\\ResourceDomain\\ResourceDomain.csproj"
+            "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj": {
+              "projectPath": "C:\\Users\\Aykhan\\Desktop\\LibraDemoRepo\\libraresource\\libraresource\\ResourceMain\\ResourceDomainCore\\ResourceDomainCore.csproj"
             }
           }
         }
@@ -4726,12 +4699,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.0.1, 3.0.1]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

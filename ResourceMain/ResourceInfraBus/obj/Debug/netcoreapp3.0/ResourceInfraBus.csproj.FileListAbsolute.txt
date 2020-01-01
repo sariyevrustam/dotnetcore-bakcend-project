@@ -20,3 +20,14 @@ C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceInfraBus\obj\Debu
 C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.csproj.CopyComplete
 C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.dll
 C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.pdb
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\bin\Debug\netcoreapp3.0\ResourceInfraBus.deps.json
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\bin\Debug\netcoreapp3.0\ResourceInfraBus.dll
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\bin\Debug\netcoreapp3.0\ResourceInfraBus.pdb
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\bin\Debug\netcoreapp3.0\ResourceDomainCore.dll
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\bin\Debug\netcoreapp3.0\ResourceDomainCore.pdb
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.csprojAssemblyReference.cache
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.AssemblyInfoInputs.cache
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.AssemblyInfo.cs
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.csproj.CopyComplete
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.dll
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceInfraBus\obj\Debug\netcoreapp3.0\ResourceInfraBus.pdb

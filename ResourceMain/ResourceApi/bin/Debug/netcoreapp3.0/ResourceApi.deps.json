@@ -2627,7 +2627,6 @@
           "Newtonsoft.Json": "12.0.3",
           "Novell.Directory.Ldap.NETStandard": "2.3.8",
           "Npgsql": "4.1.2",
-          "ResourceDomain": "1.0.0",
           "ResourceDomainCore": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "5.5.0"
         },
@@ -2636,18 +2635,6 @@
         },
         "compile": {
           "ResourceData.dll": {}
-        }
-      },
-      "ResourceDomain/1.0.0": {
-        "dependencies": {
-          "MediatR": "7.0.0",
-          "ResourceDomainCore": "1.0.0"
-        },
-        "runtime": {
-          "ResourceDomain.dll": {}
-        },
-        "compile": {
-          "ResourceDomain.dll": {}
         }
       },
       "ResourceDomainCore/1.0.0": {
@@ -5788,11 +5775,6 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "ResourceData/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "ResourceDomain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

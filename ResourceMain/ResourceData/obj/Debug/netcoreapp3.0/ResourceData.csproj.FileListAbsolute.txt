@@ -24,3 +24,14 @@ C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceData\obj\Debug\ne
 C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.csproj.CopyComplete
 C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.dll
 C:\Users\ayxan\source\repos\LibraResource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.pdb
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\bin\Debug\netcoreapp3.0\ResourceData.deps.json
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\bin\Debug\netcoreapp3.0\ResourceData.dll
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\bin\Debug\netcoreapp3.0\ResourceData.pdb
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\bin\Debug\netcoreapp3.0\ResourceDomainCore.dll
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\bin\Debug\netcoreapp3.0\ResourceDomainCore.pdb
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.csprojAssemblyReference.cache
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.AssemblyInfoInputs.cache
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.AssemblyInfo.cs
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.csproj.CopyComplete
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.dll
+C:\Users\Aykhan\Desktop\LibraDemoRepo\libraresource\libraresource\ResourceMain\ResourceData\obj\Debug\netcoreapp3.0\ResourceData.pdb

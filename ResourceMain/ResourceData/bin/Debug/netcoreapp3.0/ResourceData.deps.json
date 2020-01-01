@@ -12,7 +12,6 @@
           "Newtonsoft.Json": "12.0.3",
           "Novell.Directory.Ldap.NETStandard": "2.3.8",
           "Npgsql": "4.1.2",
-          "ResourceDomain": "1.0.0",
           "ResourceDomainCore": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "5.5.0"
         },
@@ -825,15 +824,6 @@
           "System.Runtime.Handles": "4.0.1"
         }
       },
-      "ResourceDomain/1.0.0": {
-        "dependencies": {
-          "MediatR": "7.0.0",
-          "ResourceDomainCore": "1.0.0"
-        },
-        "runtime": {
-          "ResourceDomain.dll": {}
-        }
-      },
       "ResourceDomainCore/1.0.0": {
         "dependencies": {
           "MediatR": "7.0.0"
@@ -1388,11 +1378,6 @@
       "sha512": "sha512-IMXgB5Vf/5Qw1kpoVgJMOvUO1l32aC+qC3OaIZjWJOjvcxuxNWOK2ZTWWYXfij22NHxT2j1yWX5vlAeQWld9vA==",
       "path": "system.threading.threadpool/4.0.10",
       "hashPath": "system.threading.threadpool.4.0.10.nupkg.sha512"
-    },
-    "ResourceDomain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "ResourceDomainCore/1.0.0": {
       "type": "project",
