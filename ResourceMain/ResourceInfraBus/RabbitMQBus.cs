@@ -110,7 +110,6 @@ namespace ResourceInfraBus
             try
             {
                 await ProcessEvent(eventName, message).ConfigureAwait(false);
-                Console.WriteLine(message + "was received from Microservice rabbit bus...");
             }
             catch (Exception ex)
             {

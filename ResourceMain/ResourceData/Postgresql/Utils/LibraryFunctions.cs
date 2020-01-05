@@ -8,6 +8,6 @@
         public const string fn_resource_add = database_schema + "fn_resource_add";
         public const string fn_resource_edit = database_schema + "fn_resource_edit";
         public const string fn_resource_delete = database_schema + "fn_resource_delete";
-        public const string fn_resource_check_availability_for_basket = database_schema + "fn_resource_check_availability_for_basket";
+        public const string fn_resource_check_basket = database_schema + "fn_resource_check_basket";
     }
 }

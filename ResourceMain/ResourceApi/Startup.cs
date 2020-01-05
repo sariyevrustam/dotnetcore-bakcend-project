@@ -50,8 +50,7 @@ namespace ResourceApi
                 var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
                 return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
             });
-
-
+            
             // CloudAMQP 
             /*services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
             {
@@ -69,11 +68,10 @@ namespace ResourceApi
 
             //Domain User Subscriptions
             ///services.AddTransient<TransferEventHandler>();
-            services.AddTransient<BasketSubmittedByUserEventHandler>();
-
-
-
-            services.AddTransient<TestCommandHandler>();
+            services.AddTransient<BasketSubmittedByUserEventHandler>(sp =>
+            {
+                return new BasketSubmittedByUserEventHandler(sp.GetService<IResourceRepository>(), sp.GetService<IEventBus>());
+            });
 
 
             //Domain User Events
@@ -83,8 +81,8 @@ namespace ResourceApi
 
             //Domain User Commands
             ///services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
-            services.AddTransient<IRequestHandler<TestCommand, bool>, TestCommandHandler>();
-
+            //services.AddTransient<IRequestHandler<TestCommand, bool>, TestCommandHandler>();
+            services.AddTransient<IRequestHandler<CheckBasketByUserCommand, bool>, CheckBasketByUserCommandHandler>();
 
             services.AddHttpContextAccessor();
 
