@@ -45,19 +45,19 @@ namespace ResourceApi
             Configuration.Bind("JwtSettings", jwtSettings);
 
             // Local RabbitMQ
-            /*services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
+            services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
             {
                 var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
                 return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
-            });*/
+            });
 
 
             // CloudAMQP 
-            services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
+            /*services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
             {
                 var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
                 return new CloudAMQPBus(sp.GetService<IMediator>(), scopeFactory);
-            });
+            });*/
 
 
 
