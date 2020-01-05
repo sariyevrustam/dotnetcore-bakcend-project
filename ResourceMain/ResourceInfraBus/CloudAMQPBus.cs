@@ -101,7 +101,7 @@ namespace ResourceInfraBus
             var eventName = typeof(T).Name;
 
 
-            channel.QueueDeclare(eventName, true, false, false, null);
+            channel.QueueDeclare(eventName, false, false, false, null);            
 
             var consumer = new AsyncEventingBasicConsumer(channel);
             consumer.Received += Consumer_Received;
