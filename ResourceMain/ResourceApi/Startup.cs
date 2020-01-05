@@ -20,6 +20,8 @@ using ResourceData.Postgresql.PostgresqlRepository.Abstract;
 using ResourceData.Postgresql.PostgresqlRepository.Solid;
 using ResourceData.MessageBus.CommandHandlers;
 using ResourceData.MessageBus.Commands;
+using ResourceData.MessageBus.EventHandlers;
+using ResourceData.MessageBus.Events;
 
 namespace ResourceApi
 {
@@ -42,12 +44,21 @@ namespace ResourceApi
             Configuration.Bind("DbSettings", dbSettings);
             Configuration.Bind("JwtSettings", jwtSettings);
 
-
-            services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
+            // Local RabbitMQ
+            /*services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
             {
                 var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
                 return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
+            });*/
+
+
+            // CloudAMQP 
+            services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
+            {
+                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+                return new CloudAMQPBus(sp.GetService<IMediator>(), scopeFactory);
             });
+
 
 
             services.AddSingleton<IResourceRepository, PgResourceRepository>(sp =>
@@ -58,10 +69,17 @@ namespace ResourceApi
 
             //Domain User Subscriptions
             ///services.AddTransient<TransferEventHandler>();
+            services.AddTransient<BasketSubmittedByUserEventHandler>();
+
+
+
             services.AddTransient<TestCommandHandler>();
+
 
             //Domain User Events
             ///services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();            
+            services.AddTransient<IEventHandler<BasketSubmittedByUserEvent>, BasketSubmittedByUserEventHandler>();
+
 
             //Domain User Commands
             ///services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
@@ -167,6 +185,14 @@ namespace ResourceApi
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+            ConfigureEventBus(app);
+        }
+
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<BasketSubmittedByUserEvent, BasketSubmittedByUserEventHandler>();            
         }
     }
 }

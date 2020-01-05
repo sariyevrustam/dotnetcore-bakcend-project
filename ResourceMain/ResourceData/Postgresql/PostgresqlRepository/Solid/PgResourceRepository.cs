@@ -234,7 +234,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
             ItemResult itemResult = new ItemResult();
             Int32[] availableResourceCounts = null;
 
-            using (NpgsqlConnection connection = this.CreateConnection())
+            /*using (NpgsqlConnection connection = this.CreateConnection())
             {
                 try
                 {
@@ -273,7 +273,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
                     i++;
                 }
                 itemResult.Item = inBasket;
-            }            
+            }     */       
 
             return itemResult;
         }

@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace ResourceData.Postgresql.Models.Inputs
 {
     public class InBasket
     {
-        public List<InDetailedResource> BasketResources { get; set; }
+        public List<int> BasketResources { get; set; }
     }
 }
