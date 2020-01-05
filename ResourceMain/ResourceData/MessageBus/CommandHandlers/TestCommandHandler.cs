@@ -19,8 +19,8 @@ namespace ResourceData.MessageBus.CommandHandlers
         public Task<bool> Handle(TestCommand request, CancellationToken cancellationToken)
         {
             //publish event to RabbitMQ
-            _bus.Publish(new TestCreatedEvent(request.Token, request.TimeStamp));
-
+/*            _bus.Publish(new TestCreatedEvent(request.Token, request.TimeStamp));
+*/
 
             return Task.FromResult(true);
         }
