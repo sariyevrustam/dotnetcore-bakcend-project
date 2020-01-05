@@ -14,7 +14,7 @@ using ResourceData.Services.Security.JWT;
 
 namespace ResourceApi.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize]
     [ApiController]
     [Route("[controller]/[action]")]
     public class ResourceController : ControllerBase
@@ -28,18 +28,12 @@ namespace ResourceApi.Controllers
         {
             pgResource = _pgResource;
             httpContextAccessor = _httpContextAccessor;
-            //currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
+            currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
         }
 
         [HttpGet]
         public ItemResult Get()
         {
-            Console.WriteLine("____________________Http Request_____________________________");
-            Console.WriteLine("username : " + httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserName));
-            Console.WriteLine("userId" + httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId));
-            Console.WriteLine("userRole" + httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Role).Value);
-            Console.WriteLine("_________________________________________________");
-
             ItemResult itemResult = pgResource.GetAll();
             return itemResult;
         }
