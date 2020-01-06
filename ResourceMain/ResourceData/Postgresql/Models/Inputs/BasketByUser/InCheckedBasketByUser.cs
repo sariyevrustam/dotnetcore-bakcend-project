@@ -6,6 +6,6 @@ namespace ResourceData.Postgresql.Models.Inputs.BasketByUser
 {
     public class InCheckedBasketByUser
     {
-        public List<InBasketResource> BasketResoures { get; set; }
+        public List<InBasketResource> BasketResources { get; set; }
     }
 }
