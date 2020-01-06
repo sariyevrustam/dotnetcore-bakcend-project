@@ -27,11 +27,14 @@ namespace ResourceData.MessageBus.EventHandlers
 
         public Task Handle(BasketSubmittedByUserEvent @event)
         {
+            Console.WriteLine("BasketSubmittedByUserEventHandler --> ");
+
             ItemResult itemResult = pgResourceRepository.CheckAvailabilityForBasket(@event.SubmittedBasket);
             InCheckedBasketByUser inCheckedBasketByUser = (InCheckedBasketByUser) itemResult.Item;
             CheckBasketByUserCommand checkBasketByUserCommand = new CheckBasketByUserCommand(inCheckedBasketByUser, @event.UserId);
             bus.SendCommand(checkBasketByUserCommand);
 
+            Console.WriteLine("BasketSubmittedByUserEventHandler --> CheckBasketByUserCommand sended");
             return Task.CompletedTask;
         }
     }
