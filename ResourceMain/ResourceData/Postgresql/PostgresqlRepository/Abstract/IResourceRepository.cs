@@ -9,5 +9,6 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Abstract
     public interface IResourceRepository : IGenericPgRepository<InResource>
     {
         public ItemResult CheckAvailabilityForBasket(InBasket inBasket);
+        public ItemResult CheckBasketResourcesByInventorNumbers(BasketInventors inBasketInventors);
     }
 }

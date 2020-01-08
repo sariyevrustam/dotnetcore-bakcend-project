@@ -9,5 +9,6 @@
         public const string fn_resource_edit = database_schema + "fn_resource_edit";
         public const string fn_resource_delete = database_schema + "fn_resource_delete";
         public const string fn_resource_check_basket = database_schema + "fn_resource_check_basket";
+        public const string fn_resource_check_basket_resource_by_inventor_no = database_schema + "fn_resource_check_basket_resource_by_inventor_no";
     }
 }

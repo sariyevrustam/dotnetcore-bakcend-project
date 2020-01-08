@@ -45,18 +45,18 @@ namespace ResourceApi
             Configuration.Bind("JwtSettings", jwtSettings);
 
             // Local RabbitMQ
-            /*services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
+            services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
             {
                 var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
                 return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
-            });*/
+            });
 
             // CloudAMQP 
-            services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
+            /*services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
             {
                 var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
                 return new CloudAMQPBus(sp.GetService<IMediator>(), scopeFactory);
-            });
+            });*/
 
 
 
@@ -72,11 +72,16 @@ namespace ResourceApi
             {
                 return new BasketSubmittedByUserEventHandler(sp.GetService<IResourceRepository>(), sp.GetService<IEventBus>());
             });
+            services.AddTransient<BasketAcceptedByOperatorEventHandler>(sp =>
+            {
+                return new BasketAcceptedByOperatorEventHandler(sp.GetService<IResourceRepository>(), sp.GetService<IEventBus>());
+            });
 
 
             //Domain User Events
             ///services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();            
             services.AddTransient<IEventHandler<BasketSubmittedByUserEvent>, BasketSubmittedByUserEventHandler>();
+            services.AddTransient<IEventHandler<BasketAcceptedByOperatorEvent>, BasketAcceptedByOperatorEventHandler>();
 
 
             //Domain User Commands
@@ -190,7 +195,8 @@ namespace ResourceApi
         private void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            eventBus.Subscribe<BasketSubmittedByUserEvent, BasketSubmittedByUserEventHandler>();            
+            eventBus.Subscribe<BasketSubmittedByUserEvent, BasketSubmittedByUserEventHandler>();
+            eventBus.Subscribe<BasketAcceptedByOperatorEvent, BasketAcceptedByOperatorEventHandler>();
         }
     }
 }
