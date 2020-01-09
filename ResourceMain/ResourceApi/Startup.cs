@@ -88,6 +88,7 @@ namespace ResourceApi
             ///services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
             //services.AddTransient<IRequestHandler<TestCommand, bool>, TestCommandHandler>();
             services.AddTransient<IRequestHandler<CheckBasketByUserCommand, bool>, CheckBasketByUserCommandHandler>();
+            services.AddTransient<IRequestHandler<DoubleCheckBasketByOperatorCommand, bool>, DoubleCheckBasketByOperatorCommandHandler>();
 
             services.AddHttpContextAccessor();
 
