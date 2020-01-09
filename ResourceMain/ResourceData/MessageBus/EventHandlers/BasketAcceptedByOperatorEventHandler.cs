@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ResourceData.MessageBus.Events;
+using ResourceData.Postgresql.Models.BaseModelClasses;
+using ResourceData.Postgresql.Models.Inputs.AcceptedBasket;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
 using ResourceDomainCore.Bus;
 using System;
@@ -23,8 +25,11 @@ namespace ResourceData.MessageBus.EventHandlers
 
         public Task Handle(BasketAcceptedByOperatorEvent @event)
         {
-            Console.WriteLine("BasketAcceptedByOperatorEventHandler --> ");            
-            Console.WriteLine(JsonConvert.SerializeObject(@event));
+            Console.WriteLine("BasketAcceptedByOperatorEventHandler --> ");
+            ItemResult itemResult = pgResourceRepository.DoubleCheckBasketResources(@event.InAcceptedBasket);
+            InAcceptedBasket inAcceptedBasket = (InAcceptedBasket) itemResult.Item; 
+            //Console.WriteLine(JsonConvert.SerializeObject(@event));
+            Console.WriteLine("double checked basket -->" + JsonConvert.SerializeObject(inAcceptedBasket));
             Console.WriteLine("BasketAcceptedByOperatorEventHandler --> CheckBasketByUserCommand");
             return Task.CompletedTask;
         }
