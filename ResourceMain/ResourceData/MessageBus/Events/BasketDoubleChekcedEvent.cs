@@ -1,4 +1,5 @@
 ﻿using ResourceData.MessageBus.Commands;
+using ResourceData.Postgresql.Models.Inputs.AcceptedBasket;
 using ResourceDomainCore.Events;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,10 @@ namespace ResourceData.MessageBus.Events
 {
     public class BasketDoubleChekcedEvent : Event
     {
-        public DoubleCheckBasketByOperatorCommand doubleCheckBasketByOperatorCommand { get; set; }
+        public InAcceptedBasket InAcceptedBasket { get; set; }
         public BasketDoubleChekcedEvent(DoubleCheckBasketByOperatorCommand _doubleCheckBasketByOperatorCommand)
         {
-            doubleCheckBasketByOperatorCommand = _doubleCheckBasketByOperatorCommand;
+            InAcceptedBasket = _doubleCheckBasketByOperatorCommand.InAcceptedBasket;
         }
     }
 }
