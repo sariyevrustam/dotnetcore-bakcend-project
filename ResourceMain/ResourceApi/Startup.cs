@@ -27,9 +27,13 @@ namespace ResourceApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment env;
+
+        public Startup(IConfiguration configuration,
+            IWebHostEnvironment _env)
         {
             Configuration = configuration;
+            env = _env;
         }
 
         public IConfiguration Configuration { get; }
@@ -44,20 +48,24 @@ namespace ResourceApi
             Configuration.Bind("DbSettings", dbSettings);
             Configuration.Bind("JwtSettings", jwtSettings);
 
-            // Local RabbitMQ
-            services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
+            if (env.IsDevelopment())
             {
-                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
-                return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
-            });
-
-            // CloudAMQP 
-            /*services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
+                // RabbitMQ
+                services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
+                {
+                    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+                    return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
+                });
+            }
+            else
             {
-                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
-                return new CloudAMQPBus(sp.GetService<IMediator>(), scopeFactory);
-            });*/
-
+                // CloudAMQP 
+                services.AddSingleton<IEventBus, CloudAMQPBus>(sp =>
+                {
+                    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+                    return new CloudAMQPBus(sp.GetService<IMediator>(), scopeFactory);
+                });
+            }
 
 
             services.AddSingleton<IResourceRepository, PgResourceRepository>(sp =>
