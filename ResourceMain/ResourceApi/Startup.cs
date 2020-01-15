@@ -76,21 +76,15 @@ namespace ResourceApi
 
             //Domain User Subscriptions
             ///services.AddTransient<TransferEventHandler>();
-            services.AddTransient<BasketSubmittedByUserEventHandler>(sp =>
-            {
-                return new BasketSubmittedByUserEventHandler(sp.GetService<IResourceRepository>(), sp.GetService<IEventBus>());
-            });
-            services.AddTransient<BasketAcceptedByOperatorEventHandler>(sp =>
-            {
-                return new BasketAcceptedByOperatorEventHandler(sp.GetService<IResourceRepository>(), sp.GetService<IEventBus>());
-            });
-
+            services.AddTransient<BasketSubmittedByUserEventHandler>();
+            services.AddTransient<BasketAcceptedByOperatorEventHandler>();
+            services.AddTransient<ResourceCollectionReturnedForResourceEventHandler>();
 
             //Domain User Events
             ///services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();            
             services.AddTransient<IEventHandler<BasketSubmittedByUserEvent>, BasketSubmittedByUserEventHandler>();
             services.AddTransient<IEventHandler<BasketAcceptedByOperatorEvent>, BasketAcceptedByOperatorEventHandler>();
-
+            services.AddTransient<IEventHandler<ResourceCollectionReturnedForResourceEvent>, ResourceCollectionReturnedForResourceEventHandler>();
 
             //Domain User Commands
             ///services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
@@ -206,6 +200,7 @@ namespace ResourceApi
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             eventBus.Subscribe<BasketSubmittedByUserEvent, BasketSubmittedByUserEventHandler>();
             eventBus.Subscribe<BasketAcceptedByOperatorEvent, BasketAcceptedByOperatorEventHandler>();
+            eventBus.Subscribe<ResourceCollectionReturnedForResourceEvent, ResourceCollectionReturnedForResourceEventHandler>();
         }
     }
 }

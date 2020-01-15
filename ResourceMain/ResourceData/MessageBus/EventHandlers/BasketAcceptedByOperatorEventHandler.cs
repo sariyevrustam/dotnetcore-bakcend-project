@@ -37,7 +37,7 @@ namespace ResourceData.MessageBus.EventHandlers
             bus.SendCommand(doubleCheckBasketByOperatorCommand);
             
             //Console.WriteLine(JsonConvert.SerializeObject(@event));
-           // Console.WriteLine("double checked basket -->" + JsonConvert.SerializeObject(inAcceptedBasket));           
+            //Console.WriteLine("double checked basket -->" + JsonConvert.SerializeObject(inAcceptedBasket));           
                         
             return Task.CompletedTask;
         }
