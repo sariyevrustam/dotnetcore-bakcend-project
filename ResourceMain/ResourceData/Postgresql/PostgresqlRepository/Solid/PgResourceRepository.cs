@@ -5,6 +5,7 @@ using ResourceData.Postgresql.Models.BaseModelClasses;
 using ResourceData.Postgresql.Models.Inputs;
 using ResourceData.Postgresql.Models.Inputs.AcceptedBasket;
 using ResourceData.Postgresql.Models.Inputs.BasketByUser;
+using ResourceData.Postgresql.Models.Inputs.ReturnedResource;
 using ResourceData.Postgresql.Models.Outputs;
 using ResourceData.Postgresql.Models.Outputs.OutBasketInventors;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
@@ -342,5 +343,43 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
 
             return itemResult;
         }
+
+        public ItemResult GetByInventarNumbers(ReturnedResources returnedResources)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_get_by_inventar_number, connection);
+                    this.Cmd.Parameters.AddWithValue("p_returned_resources", JsonConvert.SerializeObject(returnedResources));
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<ReturnedResources>((string)dataReader[0]);
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
+
     }
 }

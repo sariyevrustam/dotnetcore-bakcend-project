@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ResourceData.Postgresql.Models.BaseModelClasses;
 using ResourceData.Postgresql.Models.Inputs;
+using ResourceData.Postgresql.Models.Inputs.ReturnedResource;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
 using ResourceData.Services.Security.JWT;
 
@@ -74,6 +75,12 @@ namespace ResourceApi.Controllers
         public ItemResult CheckResourceByInvantarId([FromBody] BasketInventors inventarIds)
         {     
             return pgResource.CheckBasketResourcesByInventorNumbers(inventarIds);
+        }
+
+        [HttpPost]
+        public ItemResult GetResourceByInvantarId([FromBody] ReturnedResources returnedResource)
+        {
+            return pgResource.GetByInventarNumbers(returnedResource);
         }
     }
 }
