@@ -88,6 +88,11 @@ namespace ResourceApi
                 return new PgLanguageRepository(dbSettings, sp.GetService<IEventBus>());
             });
 
+            services.AddSingleton<IUsageLocationStatusRepository, PgUsageLocationStatusRepository>(sp =>
+            {
+                return new PgUsageLocationStatusRepository(dbSettings, sp.GetService<IEventBus>());
+            });
+
             //Domain User Subscriptions
             ///services.AddTransient<TransferEventHandler>();
             services.AddTransient<BasketSubmittedByUserEventHandler>();

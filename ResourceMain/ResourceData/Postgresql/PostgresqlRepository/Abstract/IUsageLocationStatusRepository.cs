@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ResourceData.Postgresql.PostgresqlRepository.Abstract
 {
-    public interface IFieldValuesRepository
+    public interface IUsageLocationStatusRepository
     {
-        public ItemResult PublishingHouseGetAll();
+        public ItemResult GetAll();
     }
 }

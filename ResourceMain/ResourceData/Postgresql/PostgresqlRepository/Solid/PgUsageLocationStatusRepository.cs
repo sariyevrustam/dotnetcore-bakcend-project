@@ -11,11 +11,11 @@ using System.Text;
 
 namespace ResourceData.Postgresql.PostgresqlRepository.Solid
 {
-    public class PgFieldValuesRepository : MainPgRepository, IFieldValuesRepository
+    public class PgUsageLocationStatusRepository : MainPgRepository, IUsageLocationStatusRepository
     {
-        public PgFieldValuesRepository(DbSettings _dbSettings, IEventBus _bus) : base(_dbSettings, _bus) { }
+        public PgUsageLocationStatusRepository(DbSettings _dbSettings, IEventBus _bus) : base(_dbSettings, _bus) { }
 
-        public ItemResult PublishingHouseGetAll()
+        public ItemResult GetAll()
         {
             ItemResult itemResult = new ItemResult();
 
@@ -24,7 +24,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
                 try
                 {
                     connection.Open();
-                    this.CreateFunctionCallQuery(LibraryFunctions.fn_publishing_house_get_all, connection);
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_usage_location_statuses_get_all, connection);
 
                     NpgsqlDataReader dataReader = null;
                     dataReader = this.Cmd.ExecuteReader();
@@ -32,7 +32,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
                     {
                         while (dataReader.Read())
                         {
-                            itemResult.Item = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PublishingHouse>>((string)dataReader[0]);
+                            itemResult.Item = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UsageLocationStatus>>((string)dataReader[0]);
                         }
                     }
                     connection.Close();

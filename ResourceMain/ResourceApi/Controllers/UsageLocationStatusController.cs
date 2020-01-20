@@ -14,24 +14,24 @@ namespace ResourceApi.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]/[action]")]
-    public class FieldValuesController : ControllerBase
+    public class UsageLocationStatusController : ControllerBase
     {
-        private readonly IFieldValuesRepository fieldValuesRepository;
+        private readonly IUsageLocationStatusRepository usageLocationStatusRepository;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly int currentUserId;
 
-        public FieldValuesController(IHttpContextAccessor _httpContextAccessor,
-            IFieldValuesRepository _fieldValuesRepository)
+        public UsageLocationStatusController(IHttpContextAccessor _httpContextAccessor,
+            IUsageLocationStatusRepository _usageLocationStatusRepository)
         {
             httpContextAccessor = _httpContextAccessor;
-            fieldValuesRepository = _fieldValuesRepository;
+            usageLocationStatusRepository = _usageLocationStatusRepository;
             currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
         }
 
         [HttpGet]
         public ItemResult GetAll()
         {
-            ItemResult itemResult = fieldValuesRepository.GetAll();
+            ItemResult itemResult = usageLocationStatusRepository.GetAll();
             return itemResult;
         }
     }
