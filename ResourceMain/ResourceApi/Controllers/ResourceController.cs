@@ -82,5 +82,19 @@ namespace ResourceApi.Controllers
         {
             return pgResource.GetByInventarNumbers(returnedResource);
         }
+
+        [HttpGet("{categoryId}")]
+        public ItemResult GetByCategory(int categoryId)
+        {
+            ItemResult itemResult = pgResource.GetByCategory(categoryId);
+            return itemResult;
+        }
+
+        [HttpGet("{categoryId}")]
+        public ItemResult GetAllByCategory(int categoryId)
+        {
+            ItemResult itemResult = pgResource.GetAllByCategory(categoryId);
+            return itemResult;
+        }
     }
 }

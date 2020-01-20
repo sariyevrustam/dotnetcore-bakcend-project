@@ -73,6 +73,20 @@ namespace ResourceApi
                 return new PgResourceRepository(dbSettings, sp.GetService<IEventBus>());
             });
 
+            services.AddSingleton<ICategoryRepository, PgCategoryRepository>(sp =>
+            {
+                return new PgCategoryRepository(dbSettings, sp.GetService<IEventBus>());
+            });
+
+            services.AddSingleton<IFieldValuesRepository, PgFieldValuesRepository>(sp =>
+            {
+                return new PgFieldValuesRepository(dbSettings, sp.GetService<IEventBus>());
+            });
+
+            services.AddSingleton<ILanguageRepository, PgLanguageRepository>(sp =>
+            {
+                return new PgLanguageRepository(dbSettings, sp.GetService<IEventBus>());
+            });
 
             //Domain User Subscriptions
             ///services.AddTransient<TransferEventHandler>();

@@ -6,6 +6,7 @@ using ResourceData.Postgresql.Models.Inputs;
 using ResourceData.Postgresql.Models.Inputs.AcceptedBasket;
 using ResourceData.Postgresql.Models.Inputs.BasketByUser;
 using ResourceData.Postgresql.Models.Inputs.ReturnedResource;
+using ResourceData.Postgresql.Models.Inputs.ReturningBookshelfResources;
 using ResourceData.Postgresql.Models.Outputs;
 using ResourceData.Postgresql.Models.Outputs.OutBasketInventors;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
@@ -76,7 +77,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
                     {
                         while (dataReader.Read())
                         {
-                            itemResult.Item = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Resource>>((string)dataReader[0]);
+                            itemResult.Item = JsonConvert.DeserializeObject<List<Resource>>((string)dataReader[0]);
                         }
                     }
                     connection.Close();
@@ -381,5 +382,117 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
             return itemResult;
         }
 
+        public ItemResult GetAvailableResourceCopyCount(InReturningBookshelfResourceCollection inReturningBookshelfResourceCollection)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_get_available_resource_copy_count, connection);
+                    this.Cmd.Parameters.AddWithValue("p_returned_resource_collection", JsonConvert.SerializeObject(inReturningBookshelfResourceCollection));
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<ReturnedResources>((string)dataReader[0]);
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
+
+        public ItemResult GetByCategory(int categoryId)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_get_by_category, connection);
+                    this.Cmd.Parameters.AddWithValue("p_category_id", categoryId);
+
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<List<DetailedResource>>((string)dataReader[0]);
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
+
+        public ItemResult GetAllByCategory(int categoryId)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_get_all_by_category, connection);
+                    this.Cmd.Parameters.AddWithValue("p_category_id", categoryId);
+
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<List<DetailedResource>>((string)dataReader[0]);
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
     }
 }
