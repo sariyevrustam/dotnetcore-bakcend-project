@@ -494,5 +494,42 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
 
             return itemResult;
         }
+
+        public ItemResult ResourceAuthorSearch(InResourceAuthorSearchFilter inResourceAuthorSearchFilter)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_author_search, connection);
+                    this.Cmd.Parameters.AddWithValue("p_filter", JsonConvert.SerializeObject(inResourceAuthorSearchFilter));
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<SearchedResourceAuthorResult>((dataReader[0]).ToString());
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
     }
 }

@@ -16,5 +16,7 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Abstract
         public ItemResult GetByInventarNumbers(ReturnedResources returnedResources);
         public ItemResult GetByCategory(int categoryId);
         public ItemResult GetAllByCategory(int categoryId);
+        public ItemResult ResourceAuthorSearch(InResourceAuthorSearchFilter inResourceAuthorSearchFilter);
+
     }
 }

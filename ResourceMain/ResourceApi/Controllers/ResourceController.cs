@@ -96,5 +96,11 @@ namespace ResourceApi.Controllers
             ItemResult itemResult = pgResource.GetAllByCategory(categoryId);
             return itemResult;
         }
+
+        [HttpPost]
+        public ItemResult SearchResourceAuthor([FromBody] InResourceAuthorSearchFilter inResourceAuthorSearchFilter)
+        {
+            return pgResource.ResourceAuthorSearch(inResourceAuthorSearchFilter);
+        }
     }
 }
