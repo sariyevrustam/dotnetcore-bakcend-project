@@ -8,7 +8,7 @@ namespace ResourceData.Postgresql.Models.Inputs.AcceptedBasket
     {        
         public int ResourceId { get; set; }
         public DateTime PermittedUntil { get; set; }
-        public bool IsAvailable { get; set; }
+        public bool IsAssigned { get; set; }
         public string ResourceUsageLocation { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace ResourceData.MessageBus.EventHandlers
 
         public Task Handle(BasketAcceptedByOperatorEvent @event)
         {
-            Console.WriteLine("BasketAcceptedByOperatorEvent --> " + JsonConvert.SerializeObject(@event));
+            Console.WriteLine("\n\nBasketAcceptedByOperatorEvent --> " + JsonConvert.SerializeObject(@event));
             ItemResult itemResult = pgResourceRepository.DoubleCheckBasketResources(@event.InAcceptedBasket);
             InAcceptedBasket inAcceptedBasket = (InAcceptedBasket) itemResult.Item;
             inAcceptedBasket.OperatorId = @event.InAcceptedBasket.OperatorId;

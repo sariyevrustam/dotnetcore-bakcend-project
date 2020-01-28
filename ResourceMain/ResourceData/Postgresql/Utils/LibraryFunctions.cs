@@ -16,6 +16,7 @@
         public const string fn_resource_get_by_inventar_number = database_schema + "fn_resource_get_by_inventar_number";
         public const string fn_resource_get_available_resource_copy_count = database_schema + "fn_resource_get_available_resource_copy_count";
         public const string fn_resource_author_search = database_schema + "fn_resource_author_search";
+        public const string fn_resource_return = database_schema + "fn_resource_return";
         public const string fn_category_get_all = database_schema + "fn_category_get_all";
         public const string fn_publishing_house_get_all = database_schema + "fn_publishing_house_get_all";
         public const string fn_language_get_all = database_schema + "fn_language_get_all";

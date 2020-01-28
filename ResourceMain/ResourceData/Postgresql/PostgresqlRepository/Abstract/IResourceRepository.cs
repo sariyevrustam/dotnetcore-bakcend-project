@@ -2,6 +2,7 @@
 using ResourceData.Postgresql.Models.Inputs;
 using ResourceData.Postgresql.Models.Inputs.AcceptedBasket;
 using ResourceData.Postgresql.Models.Inputs.ReturnedResource;
+using ResourceData.Postgresql.Models.Inputs.ReturningBookshelfResources;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,6 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Abstract
         public ItemResult GetByCategory(int categoryId);
         public ItemResult GetAllByCategory(int categoryId);
         public ItemResult ResourceAuthorSearch(InResourceAuthorSearchFilter inResourceAuthorSearchFilter);
-
+        public ItemResult ReturnResources(InReturningBookshelfResourceCollection inReturningBookshelfResourceCollection);
     }
 }

@@ -23,6 +23,7 @@ namespace ResourceData.MessageBus.EventHandlers
 
         public Task Handle(ResourceCollectionReturnedForResourceEvent @event)
         {
+            pgResourceRepository.ReturnResources(@event.InReturningBookshelfResourceCollection);
             Console.WriteLine("ResourceCollectionReturnedForResourceEventHandler" + JsonConvert.SerializeObject(@event.InReturningBookshelfResourceCollection));
             return Task.CompletedTask;
         }
