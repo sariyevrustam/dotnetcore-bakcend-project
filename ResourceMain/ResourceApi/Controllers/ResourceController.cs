@@ -17,13 +17,16 @@ namespace ResourceApi.Controllers
     public class ResourceController : ControllerBase
     {
         private readonly IResourceRepository pgResource;
+        private readonly IResourceTypeRepository resourceTypeRepository;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly int currentUserId;
 
         public ResourceController(IResourceRepository _pgResource,
+            IResourceTypeRepository _resourceTypeRepository,
             IHttpContextAccessor _httpContextAccessor)
         {
             pgResource = _pgResource;
+            resourceTypeRepository = _resourceTypeRepository;
             httpContextAccessor = _httpContextAccessor;
             currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
         }
@@ -101,6 +104,12 @@ namespace ResourceApi.Controllers
         public ItemResult SearchResourceAuthor([FromBody] InResourceAuthorSearchFilter inResourceAuthorSearchFilter)
         {
             return pgResource.ResourceAuthorSearch(inResourceAuthorSearchFilter);
+        }
+
+        [HttpGet]
+        public ItemResult GetAllResourceType()
+        {
+            return resourceTypeRepository.GetAll();            
         }
     }
 }

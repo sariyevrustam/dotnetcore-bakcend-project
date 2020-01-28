@@ -20,6 +20,7 @@
         public const string fn_category_get_all = database_schema + "fn_category_get_all";
         public const string fn_publishing_house_get_all = database_schema + "fn_publishing_house_get_all";
         public const string fn_language_get_all = database_schema + "fn_language_get_all";
-        public const string fn_resource_usage_location_statuses_get_all = database_schema + "fn_resource_usage_location_statuses_get_all";        
+        public const string fn_resource_usage_location_statuses_get_all = database_schema + "fn_resource_usage_location_statuses_get_all";
+        public const string fn_resource_type_get_all = database_schema + "fn_resource_type_get_all";
     }
 }
