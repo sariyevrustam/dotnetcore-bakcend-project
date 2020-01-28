@@ -109,6 +109,12 @@ namespace ResourceApi.Controllers
             return pgResource.ResourceAuthorSearch(inResourceAuthorSearchFilter);
         }
 
+        [HttpPost]
+        public ItemResult ResourceSearchForSearchButton([FromBody] InResourceAuthorSearchFilter inResourceAuthorSearchFilter)
+        {
+            return pgResource.ResourceSearchForSearchButton(inResourceAuthorSearchFilter);
+        }
+
         [HttpGet]
         public ItemResult GetAllResourceType()
         {
