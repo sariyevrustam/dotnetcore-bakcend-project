@@ -98,6 +98,11 @@ namespace ResourceApi
                 return new PgResourceTypeRepository(dbSettings, sp.GetService<IEventBus>());
             });
 
+            services.AddSingleton<IElectronResourceTypeRepository, PgElectronResourceTypeRepository>(sp =>
+            {
+                return new PgElectronResourceTypeRepository(dbSettings, sp.GetService<IEventBus>());
+            });
+
             //Domain User Subscriptions
             ///services.AddTransient<TransferEventHandler>();
             services.AddTransient<BasketSubmittedByUserEventHandler>();

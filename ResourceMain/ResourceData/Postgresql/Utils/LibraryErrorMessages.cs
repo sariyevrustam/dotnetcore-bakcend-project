@@ -14,6 +14,8 @@ namespace ResourceData.Postgresql.Utils
             {"lib_category_0001", "The categories were not found."},
             {"lib_publishing_house_0001", "The publishing_houses were not found."},
             {"lib_language_0001", "The languages were not found."},
+            {"lib_resource_type_0001", "Resource types were not found."},
+            {"lib_electron_resource_type_0001", "Electron resource types were not found."},
             {"lib_usage_location_status_0001", "The usage location statuses were not found."}
         }; 
 

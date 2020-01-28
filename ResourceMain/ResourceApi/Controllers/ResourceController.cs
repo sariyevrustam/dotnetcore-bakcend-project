@@ -18,15 +18,18 @@ namespace ResourceApi.Controllers
     {
         private readonly IResourceRepository pgResource;
         private readonly IResourceTypeRepository resourceTypeRepository;
+        private readonly IElectronResourceTypeRepository electronResourceTypeRepository;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly int currentUserId;
 
         public ResourceController(IResourceRepository _pgResource,
             IResourceTypeRepository _resourceTypeRepository,
+            IElectronResourceTypeRepository _electronResourceTypeRepository, 
             IHttpContextAccessor _httpContextAccessor)
         {
             pgResource = _pgResource;
             resourceTypeRepository = _resourceTypeRepository;
+            electronResourceTypeRepository = _electronResourceTypeRepository;
             httpContextAccessor = _httpContextAccessor;
             currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
         }
@@ -110,6 +113,12 @@ namespace ResourceApi.Controllers
         public ItemResult GetAllResourceType()
         {
             return resourceTypeRepository.GetAll();            
+        }
+
+        [HttpGet]
+        public ItemResult GetAllElectronResourceType()
+        {
+            return electronResourceTypeRepository.GetAll();
         }
     }
 }
