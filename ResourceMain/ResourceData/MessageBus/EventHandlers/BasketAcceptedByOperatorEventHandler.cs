@@ -29,9 +29,11 @@ namespace ResourceData.MessageBus.EventHandlers
             Console.WriteLine("\n\nBasketAcceptedByOperatorEvent --> " + JsonConvert.SerializeObject(@event));
             ItemResult itemResult = pgResourceRepository.DoubleCheckBasketResources(@event.InAcceptedBasket);
             InAcceptedBasket inAcceptedBasket = (InAcceptedBasket) itemResult.Item;
+            inAcceptedBasket.OperatorId = @event.InAcceptedBasket.OperatorId;
+            inAcceptedBasket.AssigneeUserId = @event.InAcceptedBasket.AssigneeUserId;
             Console.WriteLine("inacceptedbasket --> " + JsonConvert.SerializeObject(inAcceptedBasket));
             DoubleCheckBasketByOperatorCommand doubleCheckBasketByOperatorCommand = new DoubleCheckBasketByOperatorCommand(inAcceptedBasket);
-            bus.SendCommand(doubleCheckBasketByOperatorCommand);                         
+            bus.SendCommand(doubleCheckBasketByOperatorCommand);                       
                         
             return Task.CompletedTask;
         }
