@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ResourceData.Postgresql.Models.BaseModelClasses;
 using ResourceData.Postgresql.Models.Inputs;
 using ResourceData.Postgresql.Models.Inputs.ReturnedResource;
@@ -112,6 +113,9 @@ namespace ResourceApi.Controllers
         [HttpPost]
         public ItemResult ResourceSearchForSearchButton([FromBody] InResourceAuthorSearchFilter inResourceAuthorSearchFilter)
         {
+            Console.WriteLine('-------------ResourceSearchForSearchButton----------------');
+            Console.WriteLine(JsonConvert.SerializeObject(inResourceAuthorSearchFilter));
+            Console.WriteLine('-----------------------------');
             return pgResource.ResourceSearchForSearchButton(inResourceAuthorSearchFilter);
         }
 
