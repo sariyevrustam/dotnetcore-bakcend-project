@@ -113,9 +113,9 @@ namespace ResourceApi.Controllers
         [HttpPost]
         public ItemResult ResourceSearchForSearchButton([FromBody] InResourceAuthorSearchFilter inResourceAuthorSearchFilter)
         {
-            Console.WriteLine('-------------ResourceSearchForSearchButton----------------');
+            Console.WriteLine("-------------ResourceSearchForSearchButton----------------");
             Console.WriteLine(JsonConvert.SerializeObject(inResourceAuthorSearchFilter));
-            Console.WriteLine('-----------------------------');
+            Console.WriteLine("-----------------------------");
             return pgResource.ResourceSearchForSearchButton(inResourceAuthorSearchFilter);
         }
 
