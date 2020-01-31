@@ -137,5 +137,11 @@ namespace ResourceApi.Controllers
         {
             return pgResource.GetAvailableCopyIds(inReturningBookshelfResourceCollection);
         }
+
+        [HttpGet]
+        public ItemResult GetMinimalPublishYear()
+        {
+            return pgResource.GetMinimalPublishYear();
+        }
     }
 }

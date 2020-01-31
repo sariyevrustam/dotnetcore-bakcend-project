@@ -21,5 +21,6 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Abstract
         public ItemResult ReturnResources(InReturningBookshelfResourceCollection inReturningBookshelfResourceCollection);
         public ItemResult ResourceSearchForSearchButton(InResourceAuthorSearchFilter inResourceAuthorSearchFilter);
         public ItemResult GetAvailableCopyIds(InReturningBookshelfResourceCollection inReturningBookshelfResourceCollection);
+        public ItemResult GetMinimalPublishYear();
     }
 }
