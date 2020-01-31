@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using ResourceData.Postgresql.Models.BaseModelClasses;
 using ResourceData.Postgresql.Models.Inputs;
 using ResourceData.Postgresql.Models.Inputs.ReturnedResource;
+using ResourceData.Postgresql.Models.Inputs.ReturningBookshelfResources;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
 using ResourceData.Services.Security.JWT;
 
@@ -129,6 +130,12 @@ namespace ResourceApi.Controllers
         public ItemResult GetAllElectronResourceType()
         {
             return electronResourceTypeRepository.GetAll();
+        }
+
+        [HttpPost]
+        public ItemResult GetAvailableCopyIds([FromBody] InReturningBookshelfResourceCollection inReturningBookshelfResourceCollection)
+        {
+            return pgResource.GetAvailableCopyIds(inReturningBookshelfResourceCollection);
         }
     }
 }

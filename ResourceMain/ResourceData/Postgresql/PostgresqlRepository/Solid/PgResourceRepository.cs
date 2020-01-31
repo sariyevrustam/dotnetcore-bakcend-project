@@ -605,5 +605,42 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
 
             return itemResult;
         }
+
+        public ItemResult GetAvailableCopyIds(InReturningBookshelfResourceCollection inReturningBookshelfResourceCollection)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_get_available_copy_ids, connection);
+                    this.Cmd.Parameters.AddWithValue("p_returned_resources", JsonConvert.SerializeObject(inReturningBookshelfResourceCollection));
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<List<ResourceCopy>>((dataReader[0]).ToString());
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
     }
 }

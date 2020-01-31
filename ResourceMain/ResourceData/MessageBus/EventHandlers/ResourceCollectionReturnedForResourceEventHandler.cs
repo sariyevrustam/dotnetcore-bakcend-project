@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
+using ResourceData.MessageBus.Commands;
 using ResourceData.MessageBus.Events;
+using ResourceData.Postgresql.Models.BaseModelClasses;
+using ResourceData.Postgresql.Models.Outputs;
 using ResourceData.Postgresql.PostgresqlRepository.Abstract;
 using ResourceDomainCore.Bus;
 using System;
@@ -24,7 +27,16 @@ namespace ResourceData.MessageBus.EventHandlers
         public Task Handle(ResourceCollectionReturnedForResourceEvent @event)
         {
             pgResourceRepository.ReturnResources(@event.InReturningBookshelfResourceCollection);
-            Console.WriteLine("ResourceCollectionReturnedForResourceEventHandler" + JsonConvert.SerializeObject(@event.InReturningBookshelfResourceCollection));
+
+            ItemResult itemResult = pgResourceRepository.GetAvailableCopyIds(@event.InReturningBookshelfResourceCollection);
+            AnnounceAvailableResourcesCommand announceAvailableResourcesCommand = new AnnounceAvailableResourcesCommand(
+                new AvailableResourceCopyIds()
+                {
+                    ResourceCopies = (List<ResourceCopy>)itemResult.Item
+                }
+                );
+            eventBus.SendCommand(announceAvailableResourcesCommand);
+
             return Task.CompletedTask;
         }
     }
