@@ -25,5 +25,6 @@
         public const string fn_electron_resource_type_get_all = database_schema + "fn_electron_resource_type_get_all";
         public const string fn_resources_search_for_search_button = database_schema + "fn_resources_search_for_search_button";
         public const string fn_resource_get_available_copy_ids = database_schema + "fn_resource_get_available_copy_ids";
+        public const string fn_resource_current_statuses_get_all = database_schema + "fn_resource_current_statuses_get_all";
     }
 }
