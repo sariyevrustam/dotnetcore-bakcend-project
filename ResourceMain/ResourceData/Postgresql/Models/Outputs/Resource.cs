@@ -58,5 +58,11 @@ namespace ResourceData.Postgresql.Models.Outputs
 
         [JsonProperty(PropertyName = "catalog_id")]
         public int? CatalogId { get; set; }
+
+        [JsonProperty(PropertyName = "current_status_id")]
+        public int CurrentStatusId { get; set; }
+
+        [JsonProperty(PropertyName = "current_status_name")]
+        public string CurrentStatusName { get; set; }
     }
 }
