@@ -26,7 +26,7 @@ namespace ResourceApi.Controllers
 
         public ResourceController(IResourceRepository _pgResource,
             IResourceTypeRepository _resourceTypeRepository,
-            IElectronResourceTypeRepository _electronResourceTypeRepository, 
+            IElectronResourceTypeRepository _electronResourceTypeRepository,
             IHttpContextAccessor _httpContextAccessor)
         {
             pgResource = _pgResource;
@@ -81,7 +81,7 @@ namespace ResourceApi.Controllers
 
         [HttpPost]
         public ItemResult CheckResourceByInvantarId([FromBody] BasketInventors inventarIds)
-        {     
+        {
             return pgResource.CheckBasketResourcesByInventorNumbers(inventarIds);
         }
 
@@ -123,7 +123,7 @@ namespace ResourceApi.Controllers
         [HttpGet]
         public ItemResult GetAllResourceType()
         {
-            return resourceTypeRepository.GetAll();            
+            return resourceTypeRepository.GetAll();
         }
 
         [HttpGet]
@@ -142,6 +142,22 @@ namespace ResourceApi.Controllers
         public ItemResult GetMinimalPublishYear()
         {
             return pgResource.GetMinimalPublishYear();
+        }
+
+        [HttpPost]
+        public ItemResult AddingNewElectronResource([FromForm] UploadedElectronResource uploadedElectronResource)
+        {
+            if (uploadedElectronResource.ResourcePdf.Length > 0)
+            {                
+                var filePath = Path.Combine(@"c:\Users\Aykhan\Desktop\uploadedPdfs", uploadedElectronResource.ResourcePdf.FileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    uploadedElectronResource.ResourcePdf.CopyTo(fileStream);
+                }
+            }
+
+            return null;
         }
     }
 }
