@@ -157,6 +157,8 @@ namespace ResourceApi.Controllers
                 }
             }
 
+            Console.WriteLine("new commit for branch --- ");
+
             return null;
         }
 
