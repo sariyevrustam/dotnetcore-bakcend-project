@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +34,11 @@ namespace ResourceApi.Controllers
             resourceTypeRepository = _resourceTypeRepository;
             electronResourceTypeRepository = _electronResourceTypeRepository;
             httpContextAccessor = _httpContextAccessor;
-            currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
+
+            if (httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId) != null)
+            {
+                currentUserId = Int32.Parse(httpContextAccessor.HttpContext.User.FindFirst(CustomClaims.UserId).Value);
+            }            
         }
 
         [HttpGet]
@@ -162,8 +167,11 @@ namespace ResourceApi.Controllers
             return null;
         }
 
-        //new commit for new branch ....
-        //new commit2
-        //new commit3
+        [AllowAnonymous]
+        [HttpPost]
+        public ItemResult GetAllResourcesByIds([FromBody] List<int> requiredResourceIds)
+        {          
+            return pgResource.GetAllResourcesByIds(requiredResourceIds);
+        }
     }
 }

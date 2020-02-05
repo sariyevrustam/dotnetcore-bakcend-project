@@ -27,5 +27,6 @@
         public const string fn_resource_get_available_copy_ids = database_schema + "fn_resource_get_available_copy_ids";
         public const string fn_resource_current_statuses_get_all = database_schema + "fn_resource_current_statuses_get_all";
         public const string fn_resource_get_min_publishing_year = database_schema + "fn_resource_get_min_publishing_year";
+        public const string fn_resource_get_all_by_ids = database_schema + "fn_resource_get_all_by_ids";
     }
 }

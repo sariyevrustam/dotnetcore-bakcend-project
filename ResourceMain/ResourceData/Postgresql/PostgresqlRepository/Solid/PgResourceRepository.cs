@@ -679,5 +679,44 @@ namespace ResourceData.Postgresql.PostgresqlRepository.Solid
 
             return itemResult;
         }
+
+        public ItemResult GetAllResourcesByIds(List<int> requiredResourceIds)
+        {
+            ItemResult itemResult = new ItemResult();
+
+            using (NpgsqlConnection connection = this.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    this.CreateFunctionCallQuery(LibraryFunctions.fn_resource_get_all_by_ids, connection);
+                    this.Cmd.Parameters.AddWithValue("p_resource_ids", JsonConvert.SerializeObject(requiredResourceIds));
+                    Console.WriteLine("p_resource_ids --- " +  JsonConvert.SerializeObject(requiredResourceIds));
+
+                    NpgsqlDataReader dataReader = null;
+                    dataReader = this.Cmd.ExecuteReader();
+                    using (dataReader)
+                    {
+                        while (dataReader.Read())
+                        {
+                            itemResult.Item = JsonConvert.DeserializeObject<List<DetailedResource>>((string)dataReader[0]);
+                        }
+                    }
+                    connection.Close();
+                }
+                catch (PostgresException e)
+                {
+                    itemResult.Code = e.MessageText;
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+                catch (NpgsqlException e)
+                {
+                    itemResult.Code = (e.ErrorCode).ToString();
+                    itemResult.Message = LibraryErrorMessages.GetErrorMessage(itemResult.Code);
+                }
+            }
+
+            return itemResult;
+        }
     }
 }
