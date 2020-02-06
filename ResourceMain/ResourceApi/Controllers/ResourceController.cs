@@ -59,7 +59,7 @@ namespace ResourceApi.Controllers
         public ItemResult Post([FromForm] InResource inResource)
         {
             var resourceFile = inResource.ResourceFile;
-            var filePath = Path.Combine("C:/Users/ayxan/Desktop/testUploadFolder", resourceFile.FileName);
+            var filePath = Path.Combine("/app/volume-resources", resourceFile.FileName);
 
             if (resourceFile.Length > 0)
             {

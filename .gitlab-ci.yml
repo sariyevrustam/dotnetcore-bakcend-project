@@ -33,7 +33,7 @@ deploying to production:
     stage: deploy
     script:  
         - "docker stop libraresource-backend || true && docker rm libraresource-backend || true"
-        - "docker run -d -p 81:80 --name libraresource-backend gitlab.atl.az:4567/demo-library/libraresource:$CI_PIPELINE_IID"
+        - "docker run -d -p 81:80 --mount source=libra-resource,target=/app/volume-resources --name libraresource-backend gitlab.atl.az:4567/demo-library/libraresource:$CI_PIPELINE_IID"
     environment:
         name: production
     only:

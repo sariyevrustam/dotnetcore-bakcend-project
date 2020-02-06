@@ -2,6 +2,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /app
 #Copy csproj and restore ass distint layers
 COPY *.sln .
+#Volume mount for Resources
+RUN mkdir volume-resources
+
 RUN mkdir ResourceMain
 COPY ResourceMain/. ./ResourceMain
 RUN dotnet restore
