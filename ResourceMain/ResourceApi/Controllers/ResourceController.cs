@@ -154,7 +154,7 @@ namespace ResourceApi.Controllers
         {
             if (uploadedElectronResource.ResourcePdf.Length > 0)
             {                
-                var filePath = Path.Combine(@"c:\Users\Aykhan\Desktop\uploadedPdfs", uploadedElectronResource.ResourcePdf.FileName);
+                var filePath = Path.Combine("/app/volume-resources", uploadedElectronResource.ResourcePdf.FileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
