@@ -162,8 +162,6 @@ namespace ResourceApi.Controllers
                 }
             }
 
-            Console.WriteLine("new commit for branch --- ");
-
             return null;
         }
 
@@ -173,5 +171,15 @@ namespace ResourceApi.Controllers
         {          
             return pgResource.GetAllResourcesByIds(requiredResourceIds);
         }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult GetPdfTest()
+        {
+            var stream = new FileStream(@"/app/volume-resources", FileMode.Open);
+            return File(stream, "application/pdf", "AyxanƏlifov.docx");
+        }
+
     }
 }
