@@ -13,5 +13,6 @@ namespace ResourceData.Postgresql.Models.Inputs
         public int? FromPublishYear { get; set; }
         public int? ToPublishYear { get; set; }
         public int?[] CurrentStatusIds { get; set; }
+        public int?[] ElectronTypeIds { get; set; }
     }
 }
