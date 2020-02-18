@@ -7,19 +7,19 @@ stages:
     - deploy
 
 before_script:
-        - "docker login -u $GITLAB_USER -p $GITLAB_PASSWORD gitlab.atl.az:4567"
+        - "docker login -u $GITLAB_USER -p $GITLAB_PASSWORD gitlab.domainname.az:4567"
 
 build_docker: 
     stage: build_image
     script: 
-        - "docker build -t gitlab.atl.az:4567/demo-library/libraresource:$CI_PIPELINE_IID ."
+        - "docker build -t gitlab.domainname.az:4567/sariyevrustam/dotnetcore-bakcend-project:$CI_PIPELINE_IID ."
     only:
         - master
 
 push_image:
     stage: push_image
     script:
-        - "docker push gitlab.atl.az:4567/demo-library/libraresource:$CI_PIPELINE_IID"
+        - "docker push gitlab.domainname.az:4567/sariyevrustam/dotnetcore-bakcend-project:$CI_PIPELINE_IID"
     only:
         - master
 
@@ -32,8 +32,8 @@ images_test:
 deploying to production:
     stage: deploy
     script:  
-        - "docker stop libraresource-backend || true && docker rm libraresource-backend || true"
-        - "docker run -d -p 81:80 --mount source=libra-resource,target=/app/volume-resources --name libraresource-backend gitlab.atl.az:4567/demo-library/libraresource:$CI_PIPELINE_IID"
+        - "docker stop dotnetcore-bakcend-project || true && docker rm dotnetcore-bakcend-project || true"
+        - "docker run -d -p 81:80 --mount source=resource,target=/app/volume-resources --name dotnetcore-bakcend-project gitlab.domainname.az:4567/sariyevrustam/dotnetcore-bakcend-project:$CI_PIPELINE_IID"
     environment:
         name: production
     only:
